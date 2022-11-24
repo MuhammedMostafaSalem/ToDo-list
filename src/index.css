@@ -1,1 +1,40 @@
-
+.formImput {
+  margin-left: 200px;
+  width: 70% !important;
+  border-top-left-radius: 50px !important;
+  border-bottom-left-radius: 50px !important;
+  border-top-right-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+}
+.formImput:focus {
+  box-shadow: none !important;
+}
+.submit {
+  margin-left: -85px;
+  border-top-right-radius: 50px !important;
+  border-bottom-right-radius: 50px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+.submit .faPlus {
+  -webkit-transition: transform .3s;
+  -moz-transition: transform .3s;
+  transition: transform .3s;
+  font-size: 20px;
+}
+.submit .faPlus:hover {
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.bg-list {
+  background-color: rgb(211, 209, 209);
+  border-radius: 15px;
+  width: 70%;
+  align-items: center;
+  margin-left: 160px;
+}
+.daleteAll {
+  width: 70% !important;
+  margin-left: 160px;
+}
