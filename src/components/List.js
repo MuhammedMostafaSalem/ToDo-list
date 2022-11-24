@@ -3,7 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Row } from 'react-bootstrap'
 
-const List = ({data}) => {
+const List = ({ data , deleteItem }) => {
+    // to delet one item from arr from id
+    const onDeleteItem=(ID)=> {
+        if(data.length >=1){
+            const index = data.findIndex((i)=> i.id === ID)
+            data.splice(index , 1)
+            deleteItem(data)
+        }
+    }
+
+
     return (
         <Row>
             <div>
@@ -15,7 +25,7 @@ const List = ({data}) => {
                                     {item.list}
                                 </div>
                                 <div type="submit" className='btn submitList'>
-                                    <FontAwesomeIcon icon={faCircleXmark} className='fs-3 text-primary' />
+                                    <FontAwesomeIcon onClick={()=> onDeleteItem(item.id)} icon={faCircleXmark} className='fs-3 text-primary' />
                                 </div>
                             </div>
                         )
