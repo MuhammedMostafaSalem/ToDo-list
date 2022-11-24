@@ -3,7 +3,7 @@ import { Button, Col, Form, Row } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 
-function Input({onAddItem , data}) {
+function Input({onAddItem , data , notify}) {
     const [plan , setPlan] = useState('')
 
     // to push to data arr
@@ -11,7 +11,11 @@ function Input({onAddItem , data}) {
         data.push( {id:Math.random() , list:plan} );
         setPlan('')
         onAddItem();
-        console.log(data);
+        
+        if(plan === '') {
+            notify('Please enter the plan of the day' , 'error')
+            return;
+        }
     }
     
     return (
