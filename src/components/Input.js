@@ -8,14 +8,14 @@ function Input({onAddItem , data , notify}) {
 
     // to push to data arr
     const addNewItem=()=> {
+        if(plan === '') {
+            notify('Please enter the plan of the day' , 'Error')
+            return;
+        }
+        
         data.push( {id:Math.random() , list:plan} );
         setPlan('')
         onAddItem();
-        
-        if(plan === '') {
-            notify('Please enter the plan of the day' , 'error')
-            return;
-        }
     }
     
     return (

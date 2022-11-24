@@ -25,7 +25,7 @@ function App() {
       deleteAllItems();
     }
 
-    notify('removed Successfully' , 'success')
+    notify('removed Successfully' , 'Success')
   }
 
   // to delete all items
@@ -34,16 +34,16 @@ function App() {
     data.splice(0, data.length)
     setData([])
 
-    notify('All removed successfully' , 'success')
+    notify('All removed successfully' , 'Success')
   }
 
 
   // to push notifaction
   const notify=(message , type)=> {
-    if(type === 'error') {
+    if(type === 'Error') {
       toast.error(message)
     }
-    else if(type === 'success') {
+    else if(type === 'Success') {
       toast.success(message)
     }
   }
@@ -64,8 +64,8 @@ function App() {
             }
           </Col>
         </Row>
-        <ToastContainer/>
       </Container>
+      <ToastContainer/>
     </div>
   );
 }
