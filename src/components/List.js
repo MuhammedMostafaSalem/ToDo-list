@@ -8,9 +8,9 @@ const List = ({data}) => {
         <Row>
             <div>
                 {
-                    data.length >=1 ? (data.map((item , index)=> {
+                    data.length >=1 ? (data.map((item)=> {
                         return(
-                            <div className='d-flex justify-content-between bg-list py-2 px-5' key={item.id} >
+                            <div className='d-flex justify-content-between bg-list py-2 px-5 mb-2' key={item.id} >
                                 <div className='text-capitalize'>
                                     {item.list}
                                 </div>

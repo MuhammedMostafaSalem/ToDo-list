@@ -11,6 +11,12 @@ function App() {
     setData([...data])
   }
 
+  // to delete all items
+  const deleteAllItems=()=> {
+    data.splice(0, data.length)
+    setData([])
+  }
+
 
   return (
     <div className="App">
@@ -23,7 +29,7 @@ function App() {
             <Input onAddItem={addItem} data={data} />
             <List data={data} />
             {
-              data.length >= 2 ? (<Button className='daleteAll fw-bold mt-3'>Delete All</Button>) : null
+              data.length >= 2 ? (<Button onClick={deleteAllItems} className='daleteAll fw-bold mt-3'>Delete All</Button>) : null
             }
           </Col>
         </Row>
