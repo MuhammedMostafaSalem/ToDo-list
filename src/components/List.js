@@ -4,9 +4,11 @@ import { faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { Row } from 'react-bootstrap'
 
 const List = ({ data , deleteItem }) => {
+    const dataLocalStorage = JSON.parse(localStorage.getItem('items'))
+
     // to delet one item from arr from id
     const onDeleteItem=(ID)=> {
-        if(data.length >=1){
+        if(localStorage.getItem('items') != null) {
             const index = data.findIndex((i)=> i.id === ID)
             data.splice(index , 1)
             deleteItem(data)
@@ -18,7 +20,7 @@ const List = ({ data , deleteItem }) => {
         <Row>
             <div>
                 {
-                    data.length >=1 ? (data.map((item)=> {
+                    localStorage.getItem('items') != null ? (dataLocalStorage.map((item)=> {
                         return(
                             <div className='d-flex justify-content-between bg-list py-2 px-5 mb-2' key={item.id} >
                                 <div className='text-capitalize'>

@@ -8,16 +8,23 @@ function App() {
 
   // to add new item
   const addItem=()=> {
+    localStorage.setItem('items' , JSON.stringify([...data]))
     setData([...data])
   }
 
   // to delete one item
   const deleteItem=(item)=> {
-    setData([...item])
+    localStorage.setItem('items' , JSON.stringify([...item]))
+    setData([...item]);
+
+    if(item.length <= 0) {
+      deleteAllItems();
+    }
   }
 
   // to delete all items
   const deleteAllItems=()=> {
+    localStorage.removeItem('items')
     data.splice(0, data.length)
     setData([])
   }
@@ -34,7 +41,7 @@ function App() {
             <Input onAddItem={addItem} data={data} />
             <List data={data} deleteItem={deleteItem} />
             {
-              data.length >= 2 ? (<Button onClick={deleteAllItems} className='daleteAll fw-bold mt-3'>Delete All</Button>) : null
+              localStorage.getItem('items') != null ? (<Button onClick={deleteAllItems} className='daleteAll fw-bold mt-3'>Delete All</Button>) : null
             }
           </Col>
         </Row>
